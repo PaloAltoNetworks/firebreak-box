@@ -153,18 +153,18 @@ if __name__ == '__main__':
         tag = sys.argv[1]
 
     try:
-        rc = FbRc(tag=tag)
+        secrets = FbSecrets(tag=tag)
     except FbSecretsError as e:
-        print('FbRc:', e, file=sys.stderr)
+        print('FbSecrets:', e, file=sys.stderr)
         sys.exit(1)
 
-    print('refresh_token:', rc.refresh_token)
+    print('refresh_token:', secrets.refresh_token)
     s = str(uuid.uuid4())
-    rc.refresh = s
+    secrets.refresh_token = s
     print('new refresh_token:', s)
 
     try:
-        rc.save()
+        secrets.save()
     except FbSecretsError as e:
-        print('FbRc:', e, file=sys.stderr)
+        print('FbSecrets:', e, file=sys.stderr)
         sys.exit(1)
