@@ -130,8 +130,6 @@ def do_folder(box, id):
 
 
 def do_file(box, id):
-    global options
-
     req = get_file(box, id)
     o = req.json()
 
@@ -219,8 +217,6 @@ def print_error(box, what, id):
 
 
 def wf_submit_file(path, url):
-    global wfapi, options
-
     try:
         wfapi.submit(url=url)
         if options['debug'] > 0:
@@ -324,8 +320,6 @@ def print_upload_file_info(wfapi, path):
 
 
 def print_response(wfapi):
-    global options
-
     if options['debug'] < 3:
         return
 

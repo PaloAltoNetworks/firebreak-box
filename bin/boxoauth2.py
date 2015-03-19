@@ -98,8 +98,6 @@ def authorize_uri(client_id, state, box_login=None):
 
 
 def save_token(client_id, client_secret, refresh_token):
-    global fbtag
-
     try:
         secrets = firebreak.secrets.FbSecrets(filename=secrets_filename,
                                               tag=fbtag)
@@ -122,8 +120,6 @@ def save_token(client_id, client_secret, refresh_token):
 
 
 def refresh_token(client_id, client_secret, code):
-    global debug, box
-
     try:
         token = box.oauth2_refresh_token(client_id, client_secret, code)
     except firebreak.box.FbBoxError as e:
@@ -149,7 +145,7 @@ def run_http(client_id, client_secret, state):
             return
 
         def do_GET(self):
-            global debug, exit_status
+            global exit_status
             path = self.path
             path2 = path = path.split('?', 1)[1]
             qs = parse_qs(path2)
