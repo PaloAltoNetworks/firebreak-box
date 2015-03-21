@@ -60,7 +60,8 @@ DESCRIPTION
 
  ``--match`` *pattern*
   Apply the Unix shell style *pattern* to the files in a user's folder
-  tree.  This uses the Python **fnmatch** module.
+  tree.  This uses the Python `fnmatch
+  <https://docs.python.org/3.4/library/fnmatch.html>`_ module.
 
  ``--tag`` *tagname*
   Specify tagname for the .panrc file **api_key** varname.  This is used
