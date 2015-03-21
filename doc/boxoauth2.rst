@@ -28,8 +28,9 @@ NAME
 
 SYNOPSIS
 ========
+::
 
-boxoauth2.py [options]
+ boxoauth2.py [options]
     --client_id id           client_id
     --client_secret secret   client_secret
     --box_login address      Box e-mail address

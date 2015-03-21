@@ -28,8 +28,9 @@ NAME
 
 SYNOPSIS
 ========
+::
 
-firebreak-box.py [options]
+ firebreak-box.py [options]
     --access_token token  Box OAuth2 access token
     --match pattern       process files matching pattern
     --tag tagname         .panrc tagname (WildFire api_key)
