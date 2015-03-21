@@ -95,6 +95,28 @@ Create a Box Application
  *refresh_token* using your application's *client_id* and
  *client_secret* and save them to a ``.firebreak-box.json`` file.
 
+WildFire API
+------------
+
+ The **pan.wfapi** module from pan-python is used to perform WildFire
+ API requests.  When the **--submit** option is specified matched
+ files are submitted to the WildFire cloud using the
+ ``/publicapi/submit/url`` API request and the verdict is obtained
+ using the ``/publicapi/get/verdict`` API request.
+
+ The Box content API provides the SHA-1 hash of each file, however we
+ cannot query WildFire for a sample report using SHA-1, and therefore
+ we do not know if the sample is known by WildFire.  The submit URL
+ response provides the MD5 and SHA-256 hash of the sample, and that is
+ used to request the sample's verdict.  If it is a known sample we
+ will see its verdict as *malware* or *benign*; if the sample has
+ previously not been seen its verdict will be *unknown*.  The WildFire
+ portal can be used to determine the verdict after analysis has been
+ completed.  Note: the Box download URL does not contain the origin
+ filename, so you have to perform file correlation and remediation
+ using a hash from the WildFire analysis report; it is recognized that
+ this is suboptimal.
+
 FILES
 =====
 
@@ -143,6 +165,8 @@ SEE ALSO
 ========
 
  boxoauth2.py
+
+ pan.wfapi
 
  WildFire Administrator's Guide
   https://www.paloaltonetworks.com/documentation/61/wildfire/wf_admin.pdf.html
