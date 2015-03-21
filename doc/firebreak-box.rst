@@ -112,7 +112,7 @@ EXIT STATUS
 EXAMPLES
 ========
 
- List files using the 'panw' tagname.
+ List files using the ``.firebreak-box.json`` *panw* tagname.
  ::
 
   $ firebreak-box.py -fbtag panw
@@ -121,7 +121,12 @@ EXAMPLES
   "All Files/tmp2/folder1/wildfire-test-pe-file-1.exe" size 55296
   "All Files/tmp2/folder1/wildfire-test-pe-file-2.exe" size 55296
 
- Submit '.exe' files to WildFire for analysis.
+ Set *api_key* varname in ``.panrc`` with *wildfire* tagname:
+ ::
+
+  $ echo 'api_key%wildfire=633531ce8899bd8368e3f549bbca307e' >> ~/.panrc
+
+ Submit '\*.exe' files to WildFire for analysis.
  ::
 
   $ firebreak-box.py --fbtag panw --match '*.exe' --submit --tag wildfire
