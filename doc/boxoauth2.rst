@@ -42,8 +42,8 @@ DESCRIPTION
 ===========
 
  **boxoauth2.py** is a command line client program which uses the
- OAuth 2.0 authorization code grant flow to obtain an *access_token*
- and *refresh_token* for a Box application.
+ OAuth 2.0 authorization code grant flow to obtain a *refresh_token*
+ for a Box application.
 
  The options are:
 
@@ -58,7 +58,7 @@ DESCRIPTION
   not specified can be entered on the Box customer login page.
 
  ``--fbtag`` *tagname*
-  Specify tagname for the .firebreakrc file.
+  Specify tagname for the ``.firebreak-box.json`` file.
 
  ``--debug`` *level*
   Enable debugging.
@@ -74,20 +74,27 @@ Create a Box Application
  Before you can use the Box API to access your cloud storage tree you
  need to create an application for content API access at
  https://app.box.com/developers/services.  This will provide you with
- a *client_id* and *client_secret* that will be used to generate a
- *refresh_token*.  The *refresh_token* is used to generate a new
+ a *client_id* and *client_secret* that can be used to generate a
+ *refresh_token*.  The *refresh_token* is used to generate an
  *access_token* to use in API requests.
 
-.firebreak-box.json File
-------------------------
+Secrets File
+------------
 
- The *client_id*, *client_secret* and *refresh_token* are saved
- in the file ``.firebreak-box.json`` and can be referenced by a *tagname*
+ The *client_id*, *client_secret* and *refresh_token* are saved in the
+ file ``.firebreak-box.json`` and can be referenced by a *tagname*
  which is *default* by default.
 
+ The file is located in the current working directory and is created
+ if it does not exist and updated if it does exist.
+
  A single Box application can be used to obtain a *refresh_token* for
- multiple Box accounts.  These accounts are identified by the
+ multiple Box accounts.  These accounts can be identified by the
  *tagname*.
+
+ The *refresh_token* is valid for one use in 60 days.  Each time the
+ *refresh_token* is used to generate an *access_token* a new
+ *refresh_token* is returned and the 60 day timer is reset.
 
 Authentication Flow
 -------------------
@@ -116,7 +123,7 @@ EXIT STATUS
 EXAMPLES
 ========
 
- Add secrets to .firebreak-box.json with tag panw.
+ Add secrets to the ``.firebreak-box.json`` with tagname *panw*.
  ::
 
   $ boxoauth2.py --client_id q8kzqmibvkm8qisb7y2gwrcjhxzliof5 \

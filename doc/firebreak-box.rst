@@ -55,8 +55,7 @@ DESCRIPTION
  ``--access_token`` *token*
   Specify the OAuth 2.0 *access_token* for a Box application.
 
-  This can be a developer token for a previously created Box
-  application.
+  This can be a developer token for a Box application.
 
  ``--match`` *pattern*
   Apply the Unix shell style *pattern* to the files in a user's folder
@@ -64,7 +63,7 @@ DESCRIPTION
   <https://docs.python.org/3.4/library/fnmatch.html>`_ module.
 
  ``--tag`` *tagname*
-  Specify tagname for the .panrc file **api_key** varname.  This is used
+  Specify tagname for the ``.panrc`` file *api_key* varname.  This is used
   to specify the WildFire API key to use for sample submittal and
   verdict identification.
 
@@ -91,7 +90,7 @@ Create a Box Application
  https://app.box.com/developers/services.  This allows you to create
  a developer token to use in the **--access_token** option.
 
- Alternatively you can use the *boxoauth2.py* program to generate a
+ Alternatively you can use the **boxoauth2.py** program to generate a
  *refresh_token* using your application's *client_id* and
  *client_secret* and save them to a ``.firebreak-box.json`` file.
 
@@ -116,6 +115,22 @@ WildFire API
  filename, so you have to perform file correlation and remediation
  using a hash from the WildFire analysis report; it is recognized that
  this is suboptimal.
+
+Secrets File
+------------
+
+ ``.firebreak-box.json`` contains OAuth 2.0 parameters and is generated
+ using **boxoauth2.py**.  Each time **firebreak-box.py** is executed
+ without specifying **--access_token**, an *access_token* is generated
+ using the *client_id*, *client_secret* and *refresh_token* in the
+ file, and the *refresh_token* is updated.
+
+ The *refresh_token* is valid for one use in 60 days.  Each time the
+ *refresh_token* is used to generate an *access_token* a new
+ *refresh_token* is returned and the 60 day timer is reset.
+
+ The secrets file can be located in the current working directory
+ or the $HOME directory.
 
 FILES
 =====
