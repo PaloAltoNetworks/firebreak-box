@@ -150,6 +150,7 @@ SEE ALSO
 ========
 
  firebreak-box.py
+  https://github.com/PaloAltoNetworks-BD/firebreak-box/blob/master/doc/firebreak-box.rst
 
  How applications connect to Box using OAuth 2.0
   https://developers.box.com/oauth/

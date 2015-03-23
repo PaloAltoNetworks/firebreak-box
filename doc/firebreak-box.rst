@@ -182,8 +182,10 @@ SEE ALSO
 ========
 
  boxoauth2.py
+  https://github.com/PaloAltoNetworks-BD/firebreak-box/blob/master/doc/boxoauth2.rst
 
  pan.wfapi
+  https://github.com/kevinsteves/pan-python/blob/master/doc/pan.wfapi.rst
 
  WildFire Administrator's Guide
   https://www.paloaltonetworks.com/documentation/61/wildfire/wf_admin.pdf.html
