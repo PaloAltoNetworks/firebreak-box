@@ -97,11 +97,13 @@ Create a Box Application
 WildFire API
 ------------
 
- The **pan.wfapi** module from pan-python is used to perform WildFire
- API requests.  When the **--submit** option is specified matched
- files are submitted to the WildFire cloud using the
- ``/publicapi/submit/url`` API request and the verdict is obtained
- using the ``/publicapi/get/verdict`` API request.
+ The
+ `pan.wfapi <https://github.com/kevinsteves/pan-python/blob/master/doc/pan.wfapi.rst>`_
+ module from `pan-python <https://github.com/kevinsteves/pan-python>`_
+ is used to perform WildFire API requests.  When the **--submit**
+ option is specified matched files are submitted to the WildFire cloud
+ using the ``/publicapi/submit/url`` API request and the verdict is
+ obtained using the ``/publicapi/get/verdict`` API request.
 
  The Box content API provides the SHA-1 hash of each file, however we
  cannot query WildFire for a sample report using SHA-1, and therefore
