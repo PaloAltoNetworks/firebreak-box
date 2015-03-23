@@ -130,7 +130,7 @@ EXAMPLES
   > --client_secret 4iFZ2gzsWMBNqx2NMLyo9yvnMookpBwy --fbtag panw
   Paste this URI into your Web browser and authenticate to Box:
 
-  https://app.box.com/api/oauth2/authorize?response_type=code&client_id=q8kzqmibvkm8qisb7y2gwrcjhxzliof5&state=c9e4699a-da76-4a09-823f-669eccalhost:8000 
+  https://app.box.com/api/oauth2/authorize?response_type=code&client_id=q8kzqmibvkm8qisb7y2gwrcjhxzliof5&state=7d2a3a63-1069-44fa-bce3-239700747b81&redirect_uri=http://localhost:8000
 
   Saved secrets to .firebreak-box.json
 
