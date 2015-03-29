@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #
 # Copyright (c) 2015 Palo Alto Networks, Inc. <techbizdev@paloaltonetworks.com>
